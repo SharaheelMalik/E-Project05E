@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm House | Music Paradise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #080714, #14141e);
+            color: rgb(255, 255, 255);
+        }
+        .glass {
+            background: rgba(98, 93, 93, 0.108);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(45, 44, 44, 0.18);
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .gradient-border {
+            position: relative;
+            border-radius: 20px;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff);
+            border-radius: 22px;
+            z-index: -1;
+            animation: gradientBorder 3s ease infinite;
+            background-size: 200% 200%;
+        }
+        @keyframes gradientBorder {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Rhythm House</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-purple-300 transition">Home</a>
+                    <a href="albums.html" class="hover:text-purple-300 transition">Albums</a>
+                    <a href="offers.html" class="hover:text-purple-300 transition">Offers</a>
+                    <a href="shows.html" class="hover:text-purple-300 transition">Live Shows</a>
+                    <a href="membership.html" class="hover:text-purple-300 transition">Membership</a>
+                    <a href="books.html" class="hover:text-purple-300 transition">Books & Magazines</a>
+                    <a href="about.html" class="hover:text-purple-300 transition">About</a>
+                    <a href="contact.html" class="hover:text-purple-300 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden glass fixed inset-0 z-40 w-full h-full bg-black bg-opacity-70 backdrop-blur-sm">
+        <div class="flex flex-col items-center justify-center h-full space-y-10">
+            <a href="index.html" class="text-2xl hover:text-purple-300 transition">Home</a>
+            <a href="albums.html" class="text-2xl hover:text-purple-300 transition">Albums</a>
+            <a href="offers.html" class="text-2xl hover:text-purple-300 transition">Offers</a>
+            <a href="shows.html" class="text-2xl hover:text-purple-300 transition">Live Shows</a>
+            <a href="membership.html" class="text-2xl hover:text-purple-300 transition">Membership</a>
+            <a href="books.html" class="text-2xl hover:text-purple-300 transition">Books & Magazines</a>
+            <a href="about.html" class="hover:text-purple-300 transition">About</a>
+            <a href="contact.html" class="text-2xl hover:text-purple-300 transition">Contact</a>
+            <button id="close-menu"
+                class="mt-10 px-6 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition">Close</button>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section id="home" class="parallax-bg h-screen flex items-center justify-center">
+        <video autoplay muted loop src="/Record Store Web/Record Store E-Project/Source Code/Assets/Video/023ccb7c5750493fadafc92ec0d620f0.mp4" style="
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;"></video>
+        <div class="container mx-auto px-6 text-center p-10 rounded-3xl" data-aos="fade-up">
+            <div class="flex flex-col md:flex-row justify-center gap-4 mt-20">
+                <a href="albums.html"
+                    class="mt-9 px-8 py-3 bg-gradient-to-r from-black-700 to-blue-600 rounded-full font-bold   transition transform hover:scale-105">Explore
+                    Albums</a>
+                <a href="membership.html"
+                    class="mt-9 py-3 bg-gradient-to-r from-black-600 to-red-600 rounded-full font-bold hover:from-beige-600 hover:to-red-600 transition transform hover:scale-105">Join
+                    Membership</a>
+            </div>
+        </div>
+    </section>
+    <!-- Albums Section -->
+    <section id="albums" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 ">Our Music Collection</h2>
+                <p class="text-xl opacity-80">Discover thousands of albums across all genres and formats</p>
+            </div>
+
+            <div class="mb-12 flex flex-wrap justify-center gap-4" data-aos="fade-up">
+                <button class="filter-btn px-6 py-2 rounded-full bg-purple-600 hover:bg-purple-700 transition"
+                    data-filter="all">All</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-700 hover:bg-gray-800 transition"
+                    data-filter="cd">CDs</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-700 hover:bg-gray-800 transition"
+                    data-filter="dvd">DVDs</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-700 hover:bg-gray-800 transition"
+                    data-filter="tape">Tapes</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-700 hover:bg-gray-800 transition"
+                    data-filter="movie">Movies</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-700 hover:bg-gray-800 transition"
+                    data-filter="band">Bands</button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-700 hover:bg-gray-800 transition"
+                    data-filter="solo">Solo Artists</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Album Items -->
+                <div class="album-item bg-gradient-to-r from-black-600 to-blue-500 p-6 rounded-2xl hover:bg-gray-600 hover:shadow-xl transition transform hover:-translate-y-2 hover:border hover:border-gray-400"
+                    data-category="cd movie" data-aos="fade-up">
+                    <div class="gradient-border h-64 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/1234.png" alt="Album Cover"
+                            class="w-full h-full object-cover transform transition duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg"/>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Movie Soundtrack Collection</h3>
+                    <p class="text-gray-300 mb-3">Various Artists</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">CD</span>
+                        <span class="text-lg font-bold">RS499</span>
+                    </div>
+                </div>
+                <div class="album-item bg-gradient-to-r from-black-600 to-blue-500 p-6 rounded-2xl hover:bg-gray-600 hover:shadow-xl transition transform hover:-translate-y-2 hover:border hover:border-gray-400"
+                    data-category="dvd band" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gradient-border h-64 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/234.png" alt="Album Cover"
+                        class="w-full h-full object-cover transform transition duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg"/>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Greatest Rock Hits</h3>
+                    <p class="text-gray-300 mb-3">The Rolling Stones</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">DVD</span>
+                        <span class="text-lg font-bold">RS699</span>
+                    </div>
+                </div>
+                <div class="album-item bg-gradient-to-r from-black-600 to-blue-500 p-6 rounded-2xl hover:bg-gray-600 hover:shadow-xl transition transform hover:-translate-y-2 hover:border hover:border-gray-400"
+                    data-category="tape solo" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gradient-border h-64 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/vinyl-records-store-digital-business-card-template-lp-album-disc-shop-corporate-marketing-advert_607579-307.jpg"
+                            alt="Album Cover"
+                            class="w-full h-full object-cover transform transition duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg" />
+
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Unplugged Sessions</h3>
+                    <p class="text-gray-300 mb-3">John Mayer</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">Tape</span>
+                        <span class="text-lg font-bold">RS349</span>
+                    </div>
+                </div>
+
+                <div class="album-item bg-gradient-to-r from-black-600 to-blue-500 p-6 rounded-2xl hover:bg-gray-600 hover:shadow-xl transition transform hover:-translate-y-2 hover:border hover:border-gray-400"
+                    data-category="cd solo" data-aos="fade-up">
+                    <div class="gradient-border h-64 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/25 adele.jpg" alt="Album Cover"
+                            class="w-full h-full object-cover transform transition duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg"/>Z">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">25</h3>
+                    <p class="text-gray-300 mb-3">Adele</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">CD</span>
+                        <span class="text-lg font-bold">RS599</span>
+                    </div>
+                </div>
+
+                <div class="album-item bg-gradient-to-r from-black-600 to-blue-500 p-6 rounded-2xl hover:bg-gray-600 hover:shadow-xl transition transform hover:-translate-y-2 hover:border hover:border-gray-400"
+                    data-category="dvd movie" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gradient-border h-64 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/Bohemian Rhapsody.jpeg" alt="Album Cover"
+                            class="w-full h-full object-cover transform transition duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg"/>">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Bohemian Rhapsody</h3>
+                    <p class="text-gray-300 mb-3">Queen</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">DVD</span>
+                        <span class="text-lg font-bold">RS799</span>
+                    </div>
+                </div>
+
+                <div class="album-item bg-gradient-to-r from-black-600 to-blue-500 p-6 rounded-2xl hover:bg-gray-600 hover:shadow-xl transition transform hover:-translate-y-2 hover:border hover:border-gray-400"
+                    data-category="tape band" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gradient-border h-64 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/Back in Black.jpg" alt="Album Cover"
+                            class="w-full h-full object-cover transform transition duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg"/>">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Back in Black</h3>
+                    <p class="text-gray-300 mb-3">AC/DC</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">Tape</span>
+                        <span class="text-lg font-bold">RS399</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="albums.html"
+                    class="px-8 py-3 bg-gradient-to-r from-blue-600 to-white-500 rounded-full font-semibold transition transform hover:scale-105 inline-block">View
+                    All Albums</a>
+            </div>
+        </div>
+    </section>
+    <!-- Search Section -->
+   <section class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-6">
+            <div class="glass p-8 rounded-2xl bg- bg-opacity-170 backdrop-blur" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-6 text-center ‎ ">Find Your Perfect Album</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <input type="text" placeholder="Search by movie name..." class="w-full px-4 py-3 rounded-full bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <input type="text" placeholder="Search by band name..." class="w-full px-4 py-3 rounded-full bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <input type="text" placeholder="Search by solo artist..." class="w-full px-4 py-3 rounded-full bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <input type="text" placeholder="Search by release year..." class="w-full px-4 py-3 rounded-full bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <button class="w-full px-4 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 font-semibold hover:from-purple-700 hover:to-blue-600 transition">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Offers Section -->
+    <section id="offers" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 ">Special Offers & Contests</h2>
+                <p class="text-xl opacity-80">Exciting deals and competitions for music lovers</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-6 rounded-2xl hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up">
+                    <div
+                        class="bg-gradient-to-r from-purple-600 to-blue-500 text-white text-center py-2 px-4 rounded-full text-sm font-bold mb-4 inline-block">
+                        HOT</div>
+                    <h3 class="text-xl font-semibold mb-2">Buy 2 Get 1 Free</h3>
+                    <p class="text-gray-300 mb-4">On all classic rock albums this weekend</p>
+                    <div class="flex items-center text-sm text-purple-300">
+                        <i data-feather="clock" class="mr-2"></i>
+                        <span>Ends in 2 days</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="bg-gradient-to-r from-pink-500 to-red-500 text-white text-center py-2 px-4 rounded-full text-sm font-bold mb-4 inline-block">
+                        NEW</div>
+                    <h3 class="text-xl font-semibold mb-2">Vinyl Weekend</h3>
+                    <p class="text-gray-300 mb-4">20% off on all vinyl records</p>
+                    <div class="flex items-center text-sm text-purple-300">
+                        <i data-feather="clock" class="mr-2"></i>
+                        <span>This weekend only</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-center py-2 px-4 rounded-full text-sm font-bold mb-4 inline-block">
+                        CONTEST</div>
+                    <h3 class="text-xl font-semibold mb-2">Guess the Tune</h3>
+                    <p class="text-gray-300 mb-4">Win a year's supply of albums</p>
+                    <div class="flex items-center text-sm text-purple-300">
+                        <i data-feather="clock" class="mr-2"></i>
+                        <span>Ongoing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Live Shows Section -->
+    <section id="shows" class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 ">Upcoming Live Shows</h2>
+                <p class="text-xl opacity-80">Experience music like never before</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div class="glass p-8 rounded-2xl" data-aos="fade-right">
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold" id="days">00</div>
+                            <div class="text-sm opacity-70">Days</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold" id="hours">00</div>
+                            <div class="text-sm opacity-70">Hours</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold" id="minutes">00</div>
+                            <div class="text-sm opacity-70">Minutes</div>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">The Acoustic Nights</h3>
+                    <p class="text-gray-300 mb-4">Featuring special guest performers from around the country</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-purple-600 rounded-full text-sm">Acoustic</span>
+                        <span class="px-3 py-1 bg-purple-600 rounded-full text-sm">Unplugged</span>
+                        <span class="px-3 py-1 bg-purple-600 rounded-full text-sm">Live</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i data-feather="calendar" class="mr-2"></i>
+                            <span>June 15, 2025</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="clock" class="mr-2"></i>
+                            <span>7:00 PM - 10:00 PM</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2"></i>
+                            <span>Rhythm House Auditorium</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="dollar-sign" class="mr-2"></i>
+                            <span>Entry: RS499 (Members: RS99)</span>
+                        </div>
+                    </div>
+                    <a href="shows.html"><button 
+                        class="mt-6 w-full py-3 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full font-semibold hover:from-purple-700 hover:to-blue-600 transition">Book
+                        Tickets</button></a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6">Show Schedule</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-purple-600 rounded-full p-2 mr-4">
+                                <i data-feather="music"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Jazz Under the Stars</h4>
+                                <p class="text-sm text-gray-300">June 22, 2025 | 8:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-600 rounded-full p-2 mr-4">
+                                <i data-feather="music"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Rock Revival Night</h4>
+                                <p class="text-sm text-gray-300">July 5, 2025 | 9:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-600 rounded-full p-2 mr-4">
+                                <i data-feather="music"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Indie Showcase</h4>
+                                <p class="text-sm text-gray-300">July 18, 2025 | 7:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-600 rounded-full p-2 mr-4">
+                                <i data-feather="music"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Blues & Brews</h4>
+                                <p class="text-sm text-gray-300">August 2, 2025 | 8:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Membership Section -->
+    <section id="membership" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 ">Become a Member</h2>
+                <p class="text-xl opacity-80">Enjoy exclusive benefits and rewards</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-2xl text-center hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up">
+                    <div class="bg-purple-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="star" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Basic</h3>
+                    <p class="text-gray-300 mb-6">Perfect for casual music lovers</p>
+                    <div class="text-4xl font-bold mb-6">RS200</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>5% discount on all purchases</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Early access to sales</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Monthly newsletter</span>
+                        </li>
+                    </ul>
+                    <a href="membership.html"><button class="w-full py-3 bg-gray-700 rounded-full font-semibold hover:bg-gray-800 transition">Join
+                        Now</button></a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl text-center border-2 border-purple-500 hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-purple-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Premium</h3>
+                    <p class="text-gray-300 mb-6">For the serious music collector</p>
+                    <div class="text-4xl font-bold mb-6">RS500</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>10% discount on all purchases</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Exclusive member-only events</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Free entry to select live shows</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Priority booking for concerts</span>
+                        </li>
+                    </ul>
+                    <a href="membership.html"><button
+                        class="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full font-semibold hover:from-purple-700 hover:to-blue-600 transition">Join
+                        Now</button></a>
+                </div>
+
+                <div class="glass p-8 rounded-2xl text-center hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-purple-600 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="dollar-sign" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">VIP</h3>
+                    <p class="text-gray-300 mb-6">The ultimate music experience</p>
+                    <div class="text-4xl font-bold mb-6">RS1000</div>
+                    <ul class="space-y-3 mb-8">RS
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>15% discount on all purchases</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Backstage access to live shows</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Personalized recommendations</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Free album every quarter</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-400 mr-2"></i>
+                            <span>Meet & greet with performers</span>
+                        </li>
+                    </ul>
+                    <a href="membership.html"><button class="w-full py-3 bg-gray-700 rounded-full font-semibold hover:bg-gray-800 transition">Join
+                        Now</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Books & Magazines Section -->
+    <section id="books" class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 ">Books & Magazines</h2>
+                <p class="text-xl opacity-80">Expand your musical knowledge</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass p-6 rounded-2xl hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up">
+                    <div class="h-48 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/guitar legends.jpeg" alt="Book Cover"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Guitar Legends</h3>
+                    <p class="text-gray-300 mb-3">International Edition</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">Magazine</span>
+                        <span class="text-lg font-bold">RS299</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/total guitar.jpeg" alt="Book Cover"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Total Guitar</h3>
+                    <p class="text-gray-300 mb-3">June 2025 Issue</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">Magazine</span>
+                        <span class="text-lg font-bold">RS349</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/The History of Jazz.jpg" alt="Book Cover"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">The History of Jazz</h3>
+                    <p class="text-gray-300 mb-3">By John Smith</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">Book</span>
+                        <span class="text-lg font-bold">RS899</span>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl hover:shadow-xl transition transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 mb-4 rounded-xl overflow-hidden">
+                        <img src="/Record Store Web/Record Store E-Project/Source Code/Assets/Images/rock.jpeg" alt="Book Cover"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Rock 'n' Roll Stories</h3>
+                    <p class="text-gray-300 mb-3">Behind the scenes</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-purple-300 font-medium">Book</span>
+                        <span class="text-lg font-bold">RS749</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="books.html"
+                    class="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full font-semibold hover:from-purple-700 hover:to-blue-600 transition transform hover:scale-105 inline-block">View
+                    All Publications</a>
+            </div>
+        </div>
+    </section>
+    <!-- Price List Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 ">Our Price List</h2>
+                <p class="text-xl opacity-80">Transparent pricing for all music lovers</p>
+            </div>
+
+            <div class="glass p-6 rounded-2xl overflow-x-auto" data-aos="fade-up">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-gray-700">
+                            <th class="text-left py-4 px-4">Item</th>
+                            <th class="text-left py-4 px-4">Standard</th>
+                            <th class="text-left py-4 px-4">Premium</th>
+                            <th class="text-left py-4 px-4">Collector's</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700 hover:bg-gray-800 transition">
+                            <td class="py-4 px-4">CDs</td>
+                            <td class="py-4 px-4">RS399 - RS599</td>
+                            <td class="py-4 px-4">RS599 - RS899</td>
+                            <td class="py-4 px-4">RS999+</td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-800 transition">
+                            <td class="py-4 px-4">DVDs</td>
+                            <td class="py-4 px-4">RS499 - RS699</td>
+                            <td class="py-4 px-4">RS799 - RS999</td>
+                            <td class="py-4 px-4">RS1199+</td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-800 transition">
+                            <td class="py-4 px-4">Tapes</td>
+                            <td class="py-4 px-4">RS299 - RS399</td>
+                            <td class="py-4 px-4">RS499 - RS599</td>
+                            <td class="py-4 px-4">RS799+</td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-800 transition">
+                            <td class="py-4 px-4">Vinyl Records</td>
+                            <td class="py-4 px-4">RS799 - RS1299</td>
+                            <td class="py-4 px-4">RS1399 - RS1999</td>
+                            <td class="py-4 px-4">RS2499+</td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-800 transition">
+                            <td class="py-4 px-4">Books</td>
+                            <td class="py-4 px-4">RS499 - RS899</td>
+                            <td class="py-4 px-4">RS999 - RS1499</td>
+                            <td class="py-4 px-4">RS1799+</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800 transition">
+                            <td class="py-4 px-4">Magazines</td>
+                            <td class="py-4 px-4">RS199 - RS399</td>
+                            <td class="py-4 px-4">RS499 - RS699</td>
+                            <td class="py-4 px-4">RS899+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="glass p-6 rounded-2xl" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-4">Monthly Sales Statistics</h3>
+                    <div class="h-64 bg-gray-800 rounded-xl flex items-center justify-center">
+                        <!-- Replace <p> with a canvas element -->
+                        <canvas id="monthlySalesChart" class="w-full h-full"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="glass p-6 rounded-2xl" data-aos="fade-left">
+                <h3 class="text-2xl font-bold mb-4">Top Selling Items</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span>1. The Beatles - Abbey Road (Vinyl)</span>
+                        <span class="font-bold">RS1499</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2. Pink Floyd - Dark Side of the Moon (CD)</span>
+                        <span class="font-bold">RS899</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>3. Guitar Legends Magazine (June)</span>
+                        <span class="font-bold">RS349</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>4. Queen - Greatest Hits (DVD)</span>
+                        <span class="font-bold">RS799</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>5. The History of Jazz (Book)</span>
+                        <span class="font-bold">RS899</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 ">Our Story</h2>
+                <p class="text-xl opacity-80">From a small shop to the city's music landmark</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="glass p-8 rounded-2xl" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-4">Rhythm House History</h3>
+                    <p class="mb-4">Founded in 1985, Rhythm House began as a small record store with just a handful of
+                        albums and a dream to share the joy of music with our community.</p>
+                    <p class="mb-4">Over the years, we've grown into the city's premier music destination, known for our
+                        extensive collection spanning all genres and formats.</p>
+                    <p class="mb-4">What sets us apart is our commitment to music lovers of all ages - from children's
+                        poetry tapes to rare vinyl records for collectors.</p>
+                    <p>Our knowledgeable staff and passion for music continue to make Rhythm House a beloved institution
+                        in the city's cultural landscape.</p>
+                </div>
+                <div class="rounded-2xl overflow-hidden" data-aos="fade-left">
+                    <img src="http://static.photos/vintage/640x360/1" alt="Our Store" class="w-full h-auto rounded-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 ">Visit Us</h2>
+                <p class="text-xl opacity-80">We'd love to hear from you</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass p-8 rounded-2xl" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-purple-600 rounded-full p-3 mr-4">
+                                <i data-feather="map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Address</h4>
+                                <p>123 Music Street, Melody District<br>Area 51, Nevada, USA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-600 rounded-full p-3 mr-4">
+                                <i data-feather="phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p>+11 22 1234 5678</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-600 rounded-full p-3 mr-4">
+                                <i data-feather="mail"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p>info@rhythmhouse.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-600 rounded-full p-3 mr-4">
+                                <i data-feather="clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Hours</h4>
+                                <p>Monday - Saturday: 10:00 PM - 9:00 AM<br>Sunday: 11:00 AM - 7:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-2xl" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-2">Your Name</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2">Email Address</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2">Subject</label>
+                            <input type="text" id="subject"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full font-semibold hover:from-purple-700 hover:to-blue-600 transition">Send
+                            Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="mt-16" data-aos="fade-up">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101626.91228476996!2d-115.88640828460656!3d37.251479546606575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80b81baaba3e8c81%3A0x970427e38e6237ae!2sArea%2051%2C%20NV%2C%20USA!5e0!3m2!1sen!2s!4v1760418602472!5m2!1sen!2s"
+                    width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"
+                    class="glass"></iframe>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Rhythm House</h3>
+                    <p class="text-gray-400">Your ultimate destination for music, magic, and memories since 1985.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="albums.html" class="text-gray-400 hover:text-white transition">Albums</a></li>
+                        <li><a href="shows.html" class="text-gray-400 hover:text-white transition">Live Shows</a></li>
+                        <li><a href="membership.html" class="text-gray-400 hover:text-white transition">Membership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Order Status</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="text-sm font-semibold mb-2">Subscribe to Newsletter</h4>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email"
+                                class="px-4 py-2 rounded-l-lg bg-gray-800 border border-gray-700 focus:outline-none w-full">
+                            <button class="px-4 py-2 bg-purple-600 rounded-r-lg hover:bg-purple-700 transition">
+                                <i data-feather="send"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Rhythm House. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Filter albums
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const albumItems = document.querySelectorAll('.album-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('bg-purple-600', 'hover:bg-purple-700'));
+                filterBtns.forEach(b => b.classList.add('bg-gray-700', 'hover:bg-gray-800'));
+                btn.classList.remove('bg-gray-700', 'hover:bg-gray-800');
+                btn.classList.add('bg-purple-600', 'hover:bg-purple-700');
+
+                const filter = btn.getAttribute('data-filter');
+
+                albumItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const eventDate = new Date('June 15, 2025 19:00:00');
+            const diff = eventDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('section').forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1
+            });
+        });
+
+        const ctx = document.getElementById('monthlySalesChart').getContext('2d');
+
+        const monthlySalesChart = new Chart(ctx, {
+            type: 'bar', // You can change to 'line' if you prefer
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Sales',
+                    data: [120, 150, 180, 100, 200, 170], // Replace with your actual sales data
+                    backgroundColor: 'rgba(37, 99, 235, 0.7)', // Blue-ish color for bars
+                    borderColor: 'rgba(37, 99, 235, 1)',
+                    borderWidth: 1,
+                    borderRadius: 4, // rounded bars (optional)
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 20
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'  // make legend text white for dark bg
+                        }
+                    }
+                }
+            }
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

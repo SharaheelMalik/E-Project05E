@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers | Rhythm House</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #080714, #14141e);
+            color: white;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Rhythm House</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-purple-300 transition">Home</a>
+                    <a href="albums.html" class="hover:text-purple-300 transition">Albums</a>
+                    <a href="offers.html" class="hover:text-purple-300 transition">Offers</a>
+                    <a href="shows.html" class="hover:text-purple-300 transition">Live Shows</a>
+                    <a href="membership.html" class="hover:text-purple-300 transition">Membership</a>
+                    <a href="books.html" class="hover:text-purple-300 transition">Books & Magazines</a>
+                    <a href="about.html" class="hover:text-purple-300 transition">About</a>
+                    <a href="contact.html" class="hover:text-purple-300 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden glass fixed inset-0 z-40 w-full h-full bg-black bg-opacity-70 backdrop-blur-sm">
+        <div class="flex flex-col items-center justify-center h-full space-y-10">
+            <a href="index.html" class="text-2xl hover:text-purple-300 transition">Home</a>
+            <a href="albums.html" class="text-2xl hover:text-purple-300 transition">Albums</a>
+            <a href="offers.html" class="text-2xl hover:text-purple-300 transition">Offers</a>
+            <a href="shows.html" class="text-2xl hover:text-purple-300 transition">Live Shows</a>
+            <a href="membership.html" class="text-2xl hover:text-purple-300 transition">Membership</a>
+            <a href="books.html" class="text-2xl hover:text-purple-300 transition">Books & Magazines</a>
+            <a href="about.html" class="text-2xl hover:text-purple-300 transition">About</a>
+            <a href="contact.html" class="text-2xl hover:text-purple-300 transition">Contact</a>
+            <button id="close-menu" class="mt-10 px-6 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition">Close</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="parallax-bg h-96 flex items-center justify-center" style="background-image: url('http://static.photos/retail/1200x630/1');">
+        <div class="container mx-auto px-6 text-center glass p-10 rounded-3xl" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Special Offers</h1>
+            <p class="text-lg md:text-xl">Exclusive deals just for music lovers</p>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="http://static.photos/retail/640x360/2" alt="Vinyl Special" class="w-full">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">30% OFF</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Vinyl Weekend</h3>
+                    <p class="text-gray-300 mb-4">All vinyl records at 30% off this weekend only. Limited stock available!</p>
+                    <div class="text-purple-400 font-bold">Valid until: June 30, 2025</div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="http://static.photos/people/640x360/1" alt="Bundle Deal" class="w-full">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full">BUNDLE</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Artist Bundle</h3>
+                    <p class="text-gray-300 mb-4">Get any artist's complete discography at 25% off the total price.</p>
+                    <div class="text-purple-400 font-bold">Limited time offer</div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="http://static.photos/technology/640x360/1" alt="Membership Offer" class="w-full">
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-full">FREE</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Free Membership</h3>
+                    <p class="text-gray-300 mb-4">Sign up for our loyalty program today and get your first 200 points free!</p>
+                    <div class="text-purple-400 font-bold">New members only</div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="http://static.photos/books/640x360/1" alt="Book Sale" class="w-full">
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white text-sm font-bold px-3 py-1 rounded-full">BOGO</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Buy One Get One</h3>
+                    <p class="text-gray-300 mb-4">Buy any music book and get a second one of equal or lesser value free.</p>
+                    <div class="text-purple-400 font-bold">While supplies last</div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="http://static.photos/event/640x360/1" alt="Show Discount" class="w-full">
+                        <div class="absolute top-4 right-4 bg-purple-500 text-white text-sm font-bold px-3 py-1 rounded-full">15% OFF</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Show Tickets</h3>
+                    <p class="text-gray-300 mb-4">15% off all live show tickets when purchased with any album.</p>
+                    <div class="text-purple-400 font-bold">Valid for all upcoming shows</div>
+                </div>
+
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="http://static.photos/retail/640x360/3" alt="Clearance" class="w-full">
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white text-sm font-bold px-3 py-1 rounded-full">CLEARANCE</div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Summer Clearance</h3>
+                    <p class="text-gray-300 mb-4">Selected items up to 50% off in our annual summer clearance sale.</p>
+                    <div class="text-purple-400 font-bold">Limited quantities</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Section -->
+    <section class="py-12 bg-black bg-opacity-30">
+        <div class="container mx-auto px-6">
+            <div class="glass p-8 rounded-2xl max-w-4xl mx-auto" data-aos="fade-up">
+                <h2 class="text-2xl font-bold mb-4">Offer Terms & Conditions</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-300">
+                    <li>All offers are valid while supplies last unless otherwise noted</li>
+                    <li>Discounts cannot be combined with other promotions</li>
+                    <li>Membership offers require valid email and account registration</li>
+                    <li>All sales are final on clearance items</li>
+                    <li>Offer expiration dates are strictly enforced</li>
+                    <li>Rhythm House reserves the right to modify or cancel any offer at any time</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Rhythm House</h3>
+                    <p class="text-gray-400">Your ultimate destination for music, magic, and memories since 1985.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="albums.html" class="text-gray-400 hover:text-white transition">Albums</a></li>
+                        <li><a href="shows.html" class="text-gray-400 hover:text-white transition">Live Shows</a></li>
+                        <li><a href="membership.html" class="text-gray-400 hover:text-white transition">Membership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Order Status</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Rhythm House. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

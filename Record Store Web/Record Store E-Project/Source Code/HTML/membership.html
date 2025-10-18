@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership | Rhythm House</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #080714, #14141e);
+            color: white;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .tier-basic {
+            border: 2px solid #6b7280;
+        }
+        .tier-premium {
+            border: 2px solid #f59e0b;
+        }
+        .tier-vip {
+            border: 2px solid #8b5cf6;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Rhythm House</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-purple-300 transition">Home</a>
+                    <a href="albums.html" class="hover:text-purple-300 transition">Albums</a>
+                    <a href="offers.html" class="hover:text-purple-300 transition">Offers</a>
+                    <a href="shows.html" class="hover:text-purple-300 transition">Live Shows</a>
+                    <a href="membership.html" class="hover:text-purple-300 transition">Membership</a>
+                    <a href="books.html" class="hover:text-purple-300 transition">Books & Magazines</a>
+                    <a href="about.html" class="hover:text-purple-300 transition">About</a>
+                    <a href="contact.html" class="hover:text-purple-300 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden glass fixed inset-0 z-40 w-full h-full bg-black bg-opacity-70 backdrop-blur-sm">
+        <div class="flex flex-col items-center justify-center h-full space-y-10">
+            <a href="index.html" class="text-2xl hover:text-purple-300 transition">Home</a>
+            <a href="albums.html" class="text-2xl hover:text-purple-300 transition">Albums</a>
+            <a href="offers.html" class="text-2xl hover:text-purple-300 transition">Offers</a>
+            <a href="shows.html" class="text-2xl hover:text-purple-300 transition">Live Shows</a>
+            <a href="membership.html" class="text-2xl hover:text-purple-300 transition">Membership</a>
+            <a href="books.html" class="text-2xl hover:text-purple-300 transition">Books & Magazines</a>
+            <a href="about.html" class="text-2xl hover:text-purple-300 transition">About</a>
+            <a href="contact.html" class="text-2xl hover:text-purple-300 transition">Contact</a>
+            <button id="close-menu" class="mt-10 px-6 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition">Close</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="parallax-bg h-96 flex items-center justify-center" style="background-image: url('http://static.photos/people/1200x630/1');">
+        <div class="container mx-auto px-6 text-center glass p-10 rounded-3xl" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Rhythm House Membership</h1>
+            <p class="text-lg md:text-xl">Unlock exclusive benefits and rewards</p>
+        </div>
+    </section>
+
+    <!-- Membership Benefits -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Why Become a Member?</h2>
+                <p class="text-xl opacity-80" data-aos="fade-up" data-aos-delay="100">Enjoy these amazing benefits with our loyalty program</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="glass p-6 rounded-2xl text-center" data-aos="fade-up">
+                    <div class="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="dollar-sign" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Earn Points</h3>
+                    <p class="text-gray-300">Get 1 point for every RS10 spent, redeemable for discounts and special offers.</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="tag" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Exclusive Discounts</h3>
+                    <p class="text-gray-300">Members-only sales and special pricing on select items throughout the year.</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="star" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Early Access</h3>
+                    <p class="text-gray-300">First dibs on new arrivals, limited editions, and concert ticket pre-sales.</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="gift" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Birthday Perks</h3>
+                    <p class="text-gray-300">Special birthday discounts and a free gift with purchase during your birthday month.</p>
+                </div>
+            </div>
+
+            <!-- Membership Tiers -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Membership Tiers</h2>
+                <p class="text-xl opacity-80" data-aos="fade-up" data-aos-delay="100">Choose the membership level that suits you best</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Basic Tier -->
+                <div class="glass p-8 rounded-2xl tier-basic" data-aos="fade-right">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">Basic</h3>
+                        <div class="text-4xl font-bold mb-4">Free</div>
+                        <p class="text-gray-400">Perfect for casual music lovers</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>1 point per RS10 spent</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Monthly member newsletter</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Birthday discount</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="x" class="text-red-500 mr-2"></i>
+                            <span class="text-gray-400">No early access</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="x" class="text-red-500 mr-2"></i>
+                            <span class="text-gray-400">No exclusive sales</span>
+                        </li>
+                    </ul>
+                    <button class="w-full py-3 bg-gray-700 rounded-full font-semibold hover:bg-gray-600 transition">Join Now</button>
+                </div>
+
+                <!-- Premium Tier -->
+                <div class="glass p-8 rounded-2xl tier-premium transform scale-105" data-aos="fade-up">
+                    <div class="text-center mb-6">
+                        <div class="bg-yellow-500 text-black text-sm font-bold px-3 py-1 rounded-full inline-block mb-2">POPULAR</div>
+                        <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                        <div class="text-4xl font-bold mb-4">RS499<span class="text-lg">/year</span></div>
+                        <p class="text-gray-400">Great for regular customers</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>1.5 points per RS10 spent</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Weekly member newsletter</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Extended birthday discount</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>48-hour early access to new releases</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Access to exclusive members-only sales</span>
+                        </li>
+                    </ul>
+                    <button class="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full font-semibold hover:from-yellow-600 hover:to-orange-600 transition">Upgrade Now</button>
+                </div>
+
+                <!-- VIP Tier -->
+                <div class="glass p-8 rounded-2xl tier-vip" data-aos="fade-left">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">VIP</h3>
+                        <div class="text-4xl font-bold mb-4">RS1,499<span class="text-lg">/year</span></div>
+                        <p class="text-gray-400">For true music connoisseurs</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>2 points per RS10 spent</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Weekly member newsletter + curated picks</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Premium birthday gift + discount</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>72-hour early access to new releases</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>VIP access to all sales and events</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Free entry to select live shows</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2"></i>
+                            <span>Personal shopping assistance</span>
+                        </li>
+                    </ul>
+                    <button class="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full font-semibold hover:from-purple-700 hover:to-blue-600 transition">Become VIP</button>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">What Our Members Say</h2>
+                <p class="text-xl opacity-80" data-aos="fade-up" data-aos-delay="100">Don't just take our word for it</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/100x100/1" alt="Member" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Rahul Sharma</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"The premium membership has saved me so much money on records and concert tickets. The early access alone is worth the price!"</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/100x100/2" alt="Member" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Priya Patel</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"As a VIP member, I get personalized recommendations that always match my taste. It's like having my own music curator!"</p>
+                </div>
+
+                <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/100x100/3" alt="Member" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Arjun Mehta</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"The free membership is great, but upgrading to premium was the best decision. The points add up so fast!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black bg-opacity-30">
+        <div class="container mx-auto px-6">
+            <div class="glass p-12 rounded-2xl text-center max-w-4xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-6">Ready to Join?</h2>
+                <p class="text-xl mb-8">Sign up today and start enjoying exclusive benefits immediately. No commitment - cancel anytime.</p>
+                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                    <a href="#" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full font-semibold hover:from-purple-700 hover:to-blue-600 transition">Join for Free</a>
+                    <a href="#" class="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full font-semibold hover:from-yellow-600 hover:to-orange-600 transition">Upgrade to Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Rhythm House</h3>
+                    <p class="text-gray-400">Your ultimate destination for music, magic, and memories since 1985.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="albums.html" class="text-gray-400 hover:text-white transition">Albums</a></li>
+                        <li><a href="shows.html" class="text-gray-400 hover:text-white transition">Live Shows</a></li>
+                        <li><a href="membership.html" class="text-gray-400 hover:text-white transition">Membership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Order Status</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Rhythm House. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
